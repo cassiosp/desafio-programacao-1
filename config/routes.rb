@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'vendas_importacao/importacao'
+
+  get 'vendas_importacao/index'
+
   get 'sales_import/import'
 
   get 'sales_import/' => 'sales_import#index'
@@ -7,7 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sales_import#index'
+  root 'vendas_importacao#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

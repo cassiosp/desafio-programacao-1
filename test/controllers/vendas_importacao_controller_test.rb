@@ -1,13 +1,13 @@
 require 'test_helper'
 
-class SalesImportControllerTest < ActionController::TestCase
+class VendasImportacaoControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
   end
   
-  test "should get import" do
-    get :import
+  test "should get importacao" do
+    get :importacao
     assert_response :success
   end
 
