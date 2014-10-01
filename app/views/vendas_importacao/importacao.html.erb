@@ -1,4 +1,12 @@
-<h1>VendasImportacao#importacao</h1>
-<p>Find me in app/views/vendas_importacao/importacao.html.erb</p>
+<%= form_for :vendas do |f| %>
+  <p>
+    <%= f.label :Arquivo %><br>
+    <%= f.file_field :arquivo %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <%= link_to 'Voltar', root_path %>

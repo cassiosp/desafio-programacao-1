@@ -3,10 +3,6 @@ Rails.application.routes.draw do
 
   get 'vendas_importacao/index'
 
-  get 'sales_import/import'
-
-  get 'sales_import/' => 'sales_import#index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
