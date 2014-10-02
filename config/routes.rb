@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'vendas_importacao/importacao'
+  
+  post 'vendas_importacao/upload'
 
   get 'vendas_importacao/index'
 

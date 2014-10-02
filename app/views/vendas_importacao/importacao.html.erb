@@ -1,12 +1,11 @@
-<%= form_for :vendas do |f| %>
-  <p>
-    <%= f.label :Arquivo %><br>
-    <%= f.file_field :arquivo %>
-  </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
+<%= form_tag({action: :upload}, multipart: true) do %>
+<p>
+	<%= label_tag(:arquivo, "Arquivo:") %>
+	<%= file_field_tag(:arquivo) %>
+</p>
+<p>
+	<%= submit_tag("Enviar arquivo") %>
+</p>
 <% end %>
 
 <%= link_to 'Voltar', root_path %>
