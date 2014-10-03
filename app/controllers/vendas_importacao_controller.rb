@@ -1,6 +1,9 @@
 require 'csv'
 
 class VendasImportacaoController < ApplicationController
+  
+  http_basic_authenticate_with name: "desafio", password: "passwd"
+  
   def index
     @vendas = Venda.all
   end
