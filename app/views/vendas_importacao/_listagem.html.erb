@@ -1,0 +1,29 @@
+
+<table>
+	<tr>
+		<th>Cliente</th>
+		<th>Compra</th>
+		<th>Preço unitário</th>
+		<th>Quantidade</th>
+		<th>Endereço vendedor</th>
+		<th>Vendedor</th>
+	</tr>
+	<%
+	receita = BigDecimal.new(0)
+	@vendas.each do |venda|
+	  receita += BigDecimal.new(venda.item_price) * BigDecimal.new(venda.purchase_count)
+	%>
+	<tr>
+		<td><%= venda.purchaser_name %></td>
+		<td><%= venda.item_description %></td>
+		<td><%= venda.item_price %></td>
+		<td><%= venda.purchase_count %></td>
+		<td><%= venda.merchant_address %></td>
+		<td><%= venda.merchant_name %></td>
+	</tr>
+	<% end %>
+	<tr>
+		<td colspan="2"><b>Total: </b></td>
+		<td colspan="4"><%= receita %></td>
+	</tr>
+</table>

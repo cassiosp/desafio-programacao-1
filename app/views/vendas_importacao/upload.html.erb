@@ -5,25 +5,6 @@
 	Confirme abaixo os registros importados.
 </p>
 
-<table>
-	<tr>
-		<th>Cliente</th>
-		<th>Compra</th>
-		<th>Preço unitário</th>
-		<th>Quantidade</th>
-		<th>Endereço vendedor</th>
-		<th>Vendedor</th>
-	</tr>
-	<% @vendas.each do |venda| %>
-	<tr>
-		<td><%= venda.purchaser_name %></td>
-		<td><%= venda.item_description %></td>
-		<td><%= venda.item_price %></td>
-		<td><%= venda.purchase_count %></td>
-		<td><%= venda.merchant_address %></td>
-		<td><%= venda.merchant_name %></td>
-	</tr>
-	<% end %>
-</table>
+<%= render "vendas_importacao/listagem"%>
 
 <%= link_to 'Lista completa', root_path %>

@@ -26,6 +26,7 @@ class VendasImportacaoController < ApplicationController
 
     caminho = Rails.root.join('public', 'uploads', @arquivo_enviado.original_filename)
     coluna = nil
+    @receita = BigDecimal.new(0)
     CSV.foreach caminho, {:col_sep => "\t"} do |linha|
       puts "Colunas => #{linha}" if linha.include? "purchaser name"
       puts "Linha => #{linha}" unless linha.include? "purchaser name"
@@ -37,7 +38,10 @@ class VendasImportacaoController < ApplicationController
           puts "#{metodo} => #{linha[index]} => #{index}"
           venda.send(metodo, linha[index])
         end
-        @vendas << venda if venda.save
+        if venda.save then
+          @vendas << venda
+          @receita += BigDecimal.new(venda.item_price) * BigDecimal.new(venda.purchase_count)
+        end
       end
 
       coluna ||= linha
