@@ -31,14 +31,10 @@ class VendasImportacaoController < ApplicationController
     coluna = nil
     @receita = BigDecimal.new(0)
     CSV.foreach caminho, {:col_sep => "\t"} do |linha|
-      puts "Colunas => #{linha}" if linha.include? "purchaser name"
-      puts "Linha => #{linha}" unless linha.include? "purchaser name"
-
       if coluna
         venda = Venda.new
         coluna.each_index do |index|
           metodo = "#{coluna[index].gsub(" ", "_")}=".to_sym
-          puts "#{metodo} => #{linha[index]} => #{index}"
           venda.send(metodo, linha[index])
         end
         if venda.save then
@@ -61,8 +57,6 @@ class VendasImportacaoController < ApplicationController
   end
 
   def mostrar_linhas_processadas
-
-    puts @vendas
 
     @linhas_lidas = []
     File.open(Rails.root.join('public', 'uploads', @arquivo_enviado.original_filename), 'rb') do |arquivo|
